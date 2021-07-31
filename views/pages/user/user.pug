@@ -1,0 +1,68 @@
+extends ../../layout/private/manage.layout.pug
+
+block content
+  .content-wrapper
+    // Content Header (Page header)
+    section.content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1 User management
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='/') Home
+              li.breadcrumb-item.active User
+      // /.container-fluid
+    // Main content
+    section.content
+      .container-fluid
+        .row
+          .col-12
+            .card
+              .card-header
+                h3.card-title User in system
+                div(style='float: right')
+                  button#creation.btn.btn-primary(type="button" data-toggle="modal" data-target="#modal-default") Add
+              .card-body
+                // /.card-header
+                table#user-table-layout.table.table-bordered.table-hover
+                  thead
+                    tr
+                      th Id
+                      th Username
+                      th Full name
+                      th status
+                      th roles
+                  tbody#user-table
+                  tfoot
+                    tr
+                      th Rendering engine
+                      th Browser
+                      th Platform(s)
+                      th Engine version
+                      th CSS grade
+              // /.card-body
+          // /.col
+        // /.row
+      // /.container-fluid
+    // /.content
+  #modal-default.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h4.modal-title Create new user
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          p One fine body&mldr;
+        .modal-footer.justify-content-between
+          button.btn.btn-default(type='button' data-dismiss='modal') Close
+          button.btn.btn-primary(type='button') Save
+      // /.modal-content
+    // /.modal-dialog
+
+
+
+block scripts
+    script(src="dist/js/pages/user.js") 

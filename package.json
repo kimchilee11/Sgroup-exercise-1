@@ -5,19 +5,22 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --fix --ext .js .",
-    "dev": "nodemon --exec babel-node src/core/bin/www.js",
-    "start": "npm run build && node ./dist/core/bin/www.js",
+    "dev": "nodemon --exec babel-node src/bin/www.js",
+    "start": "npm run build && node ./dist/bin/www.js",
     "clean": "rm -rf dist && mkdir dist",
     "build:babel": "babel ./src --out-dir dist --copy-files",
     "build": "yarn run clean && yarn run build:babel",
-    "knex": "node_modules/.bin/knex --knexfile src/core/config/knexfile.js",
-    "db:reset": "yarn knex migrate:rollback && yarn knex migrate:latest && yarn knex seed:run"
+    "knex": "node_modules/.bin/knex --knexfile ./knexfile.js",
+    "db:reset": "yarn knex migrate:rollback && yarn knex migrate:latest && yarn knex seed:run",
+    "create:migration": "yarn knex migrate:make",
+    "migrate:latest": "yarn knex migrate:latest",
+    "migrate:rollback": "yarn knex migrate:rollback",
+    "migrate:reset": "yarn run migrate:rollback && yarn run migrate:latest && yarn run seed:run",
+    "seed:run": "yarn knex seed:run",
+    "heroku-postbuild": "yarn install && yarn migrate:reset && yarn run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kimchilee11/Sgroup-exercise-1.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/kimchilee11/Sgroup-exercise-1.git",
+  "author": "Kim Chi <kimchilethi411@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kimchilee11/Sgroup-exercise-1/issues"
@@ -26,6 +29,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "debug": "^4.2.0",
     "dotenv": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
@@ -37,7 +41,9 @@
     "knex": "^0.21.12",
     "method-override": "^3.0.0",
     "mysql": "^2.18.1",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "type": "module",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",

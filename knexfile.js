@@ -3,10 +3,14 @@ require('dotenv').config();
 module.exports = {
     development: {
         client: 'mysql',
-        connection: process.env.DATABASE_URL,
+        connection: {
+            user: 'root',
+            password: '',
+            database: 'blog'
+        },
         searchPath: ['knex', 'public'],
         migrations: {
-            directory: 'src/core/database/migrations',
+            directory: 'src/database/migrations',
                 tableName: 'migrations',
             },
             seeds: {
@@ -16,10 +20,14 @@ module.exports = {
         },
         production: {
             client: 'mysql',
-            connection: process.env.DATABASE_URL,
+            connection: {
+                user: 'root',
+                password: '',
+                database: 'blog'
+            },
             searchPath: ['knex', 'public'],
             migrations: {
-                directory: 'src/core/database/migrations',
+                directory: 'src/database/migrations',
                     tableName: 'migrations',
                 },
                 seeds: {

@@ -1,0 +1,34 @@
+error: undefined {"code":"ER_ACCESS_DENIED_ERROR","errno":1045,"sqlMessage":"Access denied for user 'root'@'localhost' (using password: YES)","sqlState":"28000","fatal":true}
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'clone' of undefined
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot set property 'roles' of undefined
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'username' of undefined
+error: Cannot read property 'username' of undefined
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: result.role.append is not a function
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: Cannot read property 'password' of null
+error: (0 , _classPrivateFieldGet2.default)(...).compare is not a function
+error: Illegal arguments: undefined, string
+error: "expiresIn" should be a number of seconds or string representing a timespan
+error: "expiresIn" should be a number of seconds or string representing a timespan
