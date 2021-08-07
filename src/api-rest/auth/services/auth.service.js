@@ -46,8 +46,7 @@ export class AuthService {
     }
 
     async login(body) {
-        const user = await this.#userService.getByUsernameWithRoles('KC');
-
+        const user = await this.#userService.getByUsernameWithRoles(body.username);
         const comparePassword = this.#bcryptService.compare(body.password, user.password);
         if (!comparePassword) {
             throw new UnAuthorizedException('Username or password is incorrect');

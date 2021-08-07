@@ -35,8 +35,8 @@ export class UserService {
 
     async getByUsernameWithRoles(username) {
         const users = await this.#userRepository.getOneBy('username', username)
-                    .leftJoin('users_roles', 'users_roles.user_id', '=', 'users.id')
-                    .innerJoin('roles', 'roles.id', '=', 'users_roles.role_id');
+            .leftJoin('users_roles', 'users_roles.user_id', '=', 'users.id')
+            .innerJoin('roles', 'roles.id', '=', 'users_roles.role_id');
 
         const result = users[0];
         result.roles = [];
@@ -53,5 +53,30 @@ export class UserService {
         delete result.role_id;
 
         return result;
+    }
+
+    async getAll(perPage, page) {
+        const builder = await this.#userRepository.getAll()
+            .leftJoin('users_roles', 'users_roles.user_id', '=', 'users.id')
+            .innerJoin('roles', 'roles.id', '=', 'users_roles.role_id')
+            .limit(perPage)
+            .offset(page);
+
+        const users = {};
+        builder.forEach(row => {
+            if (!users[row.user_id]) {
+                users[row.user_id] = {
+                    ...row,
+                    roles: [row.name],
+                };
+                if (users[row.user_id].role_id) delete users[row.user_id].role_id;
+                if (users[row.user_id].id) delete users[row.user_id].id;
+                if (users[row.user_id].password) delete users[row.user_id].password;
+            } else {
+                users[row.user_id].roles.push(row.name);
+            }
+        });
+
+        return Object.values(users);
     }
 }

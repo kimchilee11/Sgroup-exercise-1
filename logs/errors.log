@@ -32,3 +32,11 @@ error: (0 , _classPrivateFieldGet2.default)(...).compare is not a function
 error: Illegal arguments: undefined, string
 error: "expiresIn" should be a number of seconds or string representing a timespan
 error: "expiresIn" should be a number of seconds or string representing a timespan
+error: Cannot set property 'roles' of undefined
+error: Cannot set property 'roles' of undefined
+error: Cannot set property 'roles' of undefined
+error: Cannot set property 'roles' of undefined
+error: Cannot set property 'roles' of undefined
+error: Cannot set property 'roles' of undefined
+error: Cannot set property 'roles' of undefined
+error: undefined {"errno":-4078,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}

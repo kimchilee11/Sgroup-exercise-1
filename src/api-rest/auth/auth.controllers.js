@@ -2,6 +2,7 @@ import { OK } from 'http-status';
 import { httpExceptionHandler } from '../../libs/http-exception/handler/exception.handler';
 import { logger } from '../../common/utils';
 import { AuthService } from './services/auth.service';
+import { loginInput } from './dto/login-input';
 
 export class AuthController {
     /**
@@ -28,8 +29,8 @@ export class AuthController {
 
     login = async (req, res) => {
         try {
-            const data = await this.#authService.login(req.body);
-            return res.status(OK).json(data);
+            const data = await this.#authService.login(loginInput(req.body));
+            return res.status(OK).send(data);
         } catch (error) {
             return httpExceptionHandler(error)(res);
         }
@@ -38,7 +39,6 @@ export class AuthController {
     register = async (req, res) => {
         try {
             const data = await this.#authService.register(req.body);
-            console.log(data);
             return res.status(OK).json(data);
         } catch (error) {
             return httpExceptionHandler(error)(res);
